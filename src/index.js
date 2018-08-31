@@ -6,7 +6,7 @@ import firebase from 'firebase'
 import registerServiceWorker from './registerServiceWorker'
 
 const config = {
-  apiKey: 'AIzaSyBEZ-79l3cvIr1JFvKlv2_-but_GDSOE6Q',
+  apiKey: process.env.API_KEY,
   authDomain: 'plant-logs.firebaseapp.com',
   databaseURL: 'https://plant-logs.firebaseio.com',
   projectId: 'plant-logs',

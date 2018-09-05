@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Plants from './Plants'
-import firebase from 'firebase'
+import { firestore } from 'firebase'
 
 class Conservatory extends Component {
   constructor () {
@@ -12,10 +12,9 @@ class Conservatory extends Component {
   }
 
   componentDidMount () {
-    firebase.firestore().collection('plants').onSnapshot(snapshot => {
+    firestore().collection('plants').onSnapshot(snapshot => {
       let changes = snapshot.docChanges()
       let plants = changes.map(change => {
-        console.log(change.doc.data())
         return change.doc.data()
       })
       this.setState({
